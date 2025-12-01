@@ -35,10 +35,13 @@ make report.pdf
 
 📊 Data Source
 This project uses four NHANES public-use datasets from the 2017–2018 cycle:
+```
 DEMO_J.XPT — demographics
 DIQ_J.XPT — diabetes questionnaire
 BMX_J.XPT — body measurements (BMI, waist)
 GHB_J.XPT — glycohemoglobin (HbA1c)
+```
+
 Download the datasets from:
 https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017
 Place all .XPT files into the data/ folder of your local checkout:
