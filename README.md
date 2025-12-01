@@ -67,3 +67,20 @@ R + RStudio Server
 Required R packages (haven, dplyr, ggplot2, pROC, randomForest, scales, rmarkdown)
 All project files (Makefile, R code, Markdown report)
 
+🖥️ Running the Project in Docker (RStudio Server)
+Start the RStudio Server container:
+```
+docker run -e PASSWORD=test -p 8787:8787 -v $(pwd):/home/rstudio/project nhanes-diabetes
+```
+Then open a web browser and navigate to:
+```
+http://localhost:8787
+```
+Login credentials:
+username: rstudio
+password: test
+Once inside RStudio, open the Terminal and run:
+
+```
+make report.pdf
+```
