@@ -84,3 +84,45 @@ Once inside RStudio, open the Terminal and run:
 ```
 make report.pdf
 ```
+This will:
+Run analysis.R
+Knit report/report.Rmd
+Generate report/report.pdf
+
+🛠️ Makefile Usage
+Common commands:
+
+```
+make report.pdf    # builds the PDF report
+make report        # same as above
+make clean         # removes generated files
+```
+Dependency tracking ensures the report rebuilds correctly when:
+report.Rmd changes
+analysis.R changes
+
+🔄 Reproducibility (Grader Instructions)
+A grader can reproduce everything by running:
+
+```
+cd /tmp
+git clone <your-repo-url>
+cd <repo-name>
+docker build . -t nhanes-diabetes
+docker run -e PASSWORD=test -p 8787:8787 -v $(pwd):/home/rstudio/project nhanes-diabetes
+```
+Then inside RStudio:
+```
+make report.pdf
+```
+
+📘 Summary
+This project demonstrates:
+End-to-end reproducible data science using Docker
+Automated compilation workflows using Make
+Statistical modeling (logistic regression)
+Machine learning (random forest)
+Exploratory data analysis with six figures
+A complete pipeline from raw NHANES data → merged dataset → modeling → PDF report
+All results, visualizations, and methods are documented in report/report.Rmd.
+The final report is automatically generated inside the Docker container.
