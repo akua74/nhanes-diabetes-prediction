@@ -62,5 +62,8 @@ From the project root:
 ```
 docker build . -t nhanes-diabetes
 ```
-
+This installs:
+R + RStudio Server
+Required R packages (haven, dplyr, ggplot2, pROC, randomForest, scales, rmarkdown)
+All project files (Makefile, R code, Markdown report)
 
