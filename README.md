@@ -1,12 +1,12 @@
 # NHANES 2017–2018 Diabetes Prediction Project
 
-This repository contains the complete, reproducible workflow for my Data Science project analyzing predictors of diabetes using the **NHANES 2017–2018** dataset.  
-The project includes:
+This repository contains the complete, reproducible workflow for my Data Science project analyzing predictors of diabetes using the **NHANES 2017–2018** dataset.
 
+The project includes:
 - A deep description of the dataset  
 - Six exploratory figures  
-- Two modeling approaches covered in class (Logistic Regression and Random Forest)  
-- A reproducible Docker + Makefile workflow for building the final PDF report  
+- Two modeling approaches discussed in class  
+- A fully reproducible Docker + Makefile environment that generates a PDF report  
 
 This repo is structured so graders can reproduce the entire analysis using:
 
@@ -15,8 +15,10 @@ git clone <repo>
 docker build . -t nhanes-diabetes
 docker run ...
 make report.pdf
+```
 
 📁 Project Structure
+```
 .
 ├── code/
 │   └── analysis.R         # data cleaning, merging, figures, modeling
@@ -29,77 +31,33 @@ make report.pdf
 ├── Makefile               # automates report building
 ├── README.md              # documentation
 └── .gitignore             # files/folders excluded from version control
+```
 
 📊 Data Source
-
 This project uses four NHANES public-use datasets from the 2017–2018 cycle:
 DEMO_J.XPT — demographics
 DIQ_J.XPT — diabetes questionnaire
 BMX_J.XPT — body measurements (BMI, waist)
 GHB_J.XPT — glycohemoglobin (HbA1c)
-Download them from:
+Download the datasets from:
 https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017
-Place all .XPT files into the data/ folder in your local checkout:
+Place all .XPT files into the data/ folder of your local checkout:
+
+```
 data/
 ├── DEMO_J.XPT
 ├── DIQ_J.XPT
 ├── BMX_J.XPT
 └── GHB_J.XPT
+```
 These files are ignored by Git for privacy and size reasons.
 
-****
 🐳 Building the Docker Image
-This project runs inside a reproducible Docker environment using an M1/M2-compatible RStudio image.
+This project uses an M1/M2-compatible Docker image with RStudio Server.
 From the project root:
 
+```
 docker build . -t nhanes-diabetes
+```
 
-This installs:
-R + RStudio Server
-R packages: haven, dplyr, ggplot2, pROC, randomForest, scales, rmarkdown
-All project files (Makefile, analysis code, R Markdown report)
 
-🖥️ Running the Project in Docker (RStudio Server)
-Start the container:
-
-docker run -e PASSWORD=test -p 8787:8787 -v $(pwd):/home/rstudio/project nhanes-diabetes
-Then open a browser and go to:
-http://localhost:8787
-Login credentials:
-username: rstudio
-password: test
-Inside RStudio, open the Terminal tab and run:
-make report.pdf
-This will:
-Run analysis.R
-Knit report/report.Rmd
-Generate report/report.pdf
-
-🛠️ Developer Notes: Makefile
-Key Makefile targets:
-make report.pdf   # builds the final report
-make report       # same as report.pdf
-make clean        # removes generated files
-
-Dependencies are tracked:
-report/report.pdf : report/report.Rmd code/analysis.R
-This ensures the PDF automatically rebuilds when needed.
-
-🔄 Reproducibility Instructions (Grader Workflow)
-A grader can reproduce everything by running:
-cd /tmp
-git clone <your-repo-url>
-cd <repo-name>
-docker build . -t nhanes-diabetes
-docker run -e PASSWORD=test -p 8787:8787 -v $(pwd):/home/rstudio/project nhanes-diabetes
-Then inside RStudio:
-make report.pdf
-
-📘 Summary
-This project demonstrates:
-Reproducible data science with Docker
-Automated workflows with Makefile
-Statistical learning (logistic regression) and machine learning (random forest)
-Exploratory data analysis through six visualizations
-A complete pipeline from raw NHANES datasets to a fully compiled PDF report
-All analysis and results are documented in report/report.Rmd, and the final report is generated from within the Docker container using the Makefile.
