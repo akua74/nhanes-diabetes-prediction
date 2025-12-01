@@ -118,11 +118,11 @@ make report.pdf
 
 📘 Summary
 This project demonstrates:
-*End-to-end reproducible data science using Docker
-*Automated compilation workflows using Make
-*Statistical modeling (logistic regression)
-*Machine learning (random forest)
-*Exploratory data analysis with six figures
-*A complete pipeline from raw NHANES data → merged dataset → modeling → PDF report
++End-to-end reproducible data science using Docker
++Automated compilation workflows using Make
++Statistical modeling (logistic regression)
++Machine learning (random forest)
++Exploratory data analysis with six figures
++A complete pipeline from raw NHANES data → merged dataset → modeling → PDF report
 All results, visualizations, and methods are documented in report/report.Rmd.
 The final report is automatically generated inside the Docker container.
