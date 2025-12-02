@@ -15,8 +15,6 @@ This includes:
 
 ---
 
-# ⭐ **COPY & PASTE THIS ENTIRE FILE INTO `report/report.Rmd`**
-
 ````markdown
 ---
 title: "NHANES 2017–2018 Diabetes Prediction Analysis"
@@ -242,13 +240,6 @@ legend("bottomright",
 ```{r varimp, echo=FALSE}
 varImpPlot(rf_fit, main = "Random Forest Variable Importance")
 ```
-
----
-
-Great — below is a **clean, formatted R Markdown section** that you can paste **directly into your `report/report.Rmd`**.
-
-I structured it to fit perfectly under a **Results**, **Discussion**, or **Findings** section.
-It uses proper Markdown headers, integrates with your figures automatically, and reads like a polished graduate-level analysis.
 
 ---
 
