@@ -329,7 +329,22 @@ The findings of this analysis highlight several key insights:
 * Socio-demographic variables add minimal predictive power once clinical measurements are accounted for
 * Logistic regression performed nearly identically to random forest, indicating that the relationship between predictors and diabetes is well-captured by simpler linear models
 
+The analysis demonstrates:
+
+* Strong associations between HbA1c, BMI, and diabetes
+* Increased diabetes prevalence with age
+* Logistic regression and random forest both perform reasonably well
+
+High-risk predictors in this dataset include:
+
+* Elevated HbA1c
+* High BMI
+* Older age
+
+These findings align with established clinical risk factors.
+
 Overall, both models achieve **excellent performance (AUC ≈ 0.94)**, demonstrating that diabetes status in NHANES can be predicted extremely well using only a small number of clinically relevant variables.
+
 
 ---
 
@@ -348,46 +363,11 @@ These results reinforce the importance of metabolic biomarkers and anthropometri
 
 ```
 
----
 
 
-# Discussion
 
-The analysis demonstrates:
 
-* Strong associations between HbA1c, BMI, and diabetes
-* Increased diabetes prevalence with age
-* Logistic regression and random forest both perform reasonably well
-* Random forest often yields higher AUC due to capturing non-linear interactions
 
-High-risk predictors in this dataset include:
 
-* Elevated HbA1c
-* High BMI
-* Older age
-
-These findings align with established clinical risk factors.
-
----
-
-# Conclusion & Future Directions
-
-This project shows how public NHANES data can be used to build reproducible prediction workflows.
-
-Future enhancements could include:
-
-* Incorporating survey weights for population-level inference
-* Testing additional machine learning models
-* Expanding feature engineering
-* Predicting pre-diabetes vs diabetes
-* Using multiple NHANES cycles for a larger sample
-
-All analyses are fully reproducible using the provided Docker and Makefile environment.
-
----
-
-# End of Report
-
-```
 
 ```
